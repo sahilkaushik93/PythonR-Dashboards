@@ -1,0 +1,32 @@
+---
+title: "Comparison: renv vs Python's venv"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## **Comparing renv and Python's venv**
+
+The following table compares virtual environment managers in **Python** and **R**.
+
+```{r, echo=FALSE}
+library(knitr)
+
+# Create a data frame with the comparison
+comparison <- data.frame(
+  Feature = c("Purpose", "Command to create", "Command to activate", 
+              "Dependency Locking", "Restoring Environment"),
+  Python_venv = c("Manages virtual environments for Python packages", 
+                  "`python -m venv env`", 
+                  "`source env/bin/activate` (Linux/macOS)\n`env\\Scripts\\activate` (Windows)",
+                  "`requirements.txt` / `pyproject.toml`",
+                  "`pip install -r requirements.txt`"),
+  R_renv = c("Manages virtual environments for R packages", 
+             "`renv::init()`", 
+             "`renv::activate()`", 
+             "`renv.lock`", 
+             "`renv::restore()`")
+)
+
+# Print the table
+kable(comparison, caption = "Table: renv vs Python's venv", align = "l")
